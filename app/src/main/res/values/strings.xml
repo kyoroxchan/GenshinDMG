@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">GenshinDm</string>
+    <string name="Offensive_power">攻撃力</string>
+    <string name="Damage_buff">ダメージバフ</string>
+    <string name="Critical_rate">会心率</string>
+    <string name="Critical_damage">会心ダメージ</string>
+    <string name="dialog_title_invalid_input">入力に誤りがあります。</string>
+</resources>
