@@ -6,6 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 
 class ResultActivity : AppCompatActivity() {
 
+    val resultDmgData: List<ResultDmgData> = listOf(
+        ResultDmgData("仮")
+    )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
