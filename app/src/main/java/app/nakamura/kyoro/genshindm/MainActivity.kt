@@ -231,22 +231,28 @@ class MainActivity : AppCompatActivity() {
         }
 
         resultB.setOnClickListener {
-            val powerNumber = power.text.toString().toDoubleOrNull()
-            val buffNumber = buff.text.toString().toDoubleOrNull()
-            val rateNumber = rate.text.toString().toDoubleOrNull()
-            val criticalNumber = critical.text.toString().toDoubleOrNull()
-            val TalentsNumber = talents.text.toString().toDoubleOrNull()
-            if (powerNumber == null || buffNumber == null || rateNumber == null || criticalNumber == null || TalentsNumber == null) {
-                AlertDialog.Builder(this).setTitle(R.string.dialog_title_invalid_input)
-                    .setPositiveButton(android.R.string.ok, null).show()
-                return@setOnClickListener
-            }
+//            val powerNumber = power.text.toString().toDoubleOrNull()
+//            val buffNumber = buff.text.toString().toDoubleOrNull()
+//            val rateNumber = rate.text.toString().toDoubleOrNull()
+//            val criticalNumber = critical.text.toString().toDoubleOrNull()
+//            val TalentsNumber = talents.text.toString().toDoubleOrNull()
+//            if (powerNumber == null || buffNumber == null || rateNumber == null || criticalNumber == null || TalentsNumber == null) {
+//                AlertDialog.Builder(this).setTitle(R.string.dialog_title_invalid_input)
+//                    .setPositiveButton(android.R.string.ok, null).show()
+//                return@setOnClickListener
+//            }
 
-            val data =
-                PersonalData(powerNumber, buffNumber, rateNumber, criticalNumber, TalentsNumber)
+
+//            val data =
+//                PersonalData(powerNumber, buffNumber, rateNumber, criticalNumber, TalentsNumber)
+
+            val resultDmgDataArrayList = arrayListOf<ResultDmgData>(ResultDmgData("攻撃1","100"),ResultDmgData("攻撃2","120"))
 
             val intent = Intent(this, ResultActivity::class.java)
-            intent.putExtra("PersonalData", data);
+            val bundle: Bundle = Bundle()
+
+            bundle.putParcelableArrayList("resultDmgData", resultDmgDataArrayList)
+            intent.putExtras(bundle)
             startActivity(intent)
         }
     }

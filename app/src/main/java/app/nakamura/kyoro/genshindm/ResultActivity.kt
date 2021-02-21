@@ -1,36 +1,23 @@
 package app.nakamura.kyoro.genshindm
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class ResultActivity : AppCompatActivity() {
 
-    val resultDmgData: List<ResultDmgData> = listOf(
-        ResultDmgData("仮")
-    )
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_result)
 
-        val resultNCDData = findViewById<TextView>(R.id.nonCriticalDmgNumber)
-        val resultCDData = findViewById<TextView>(R.id.criticalDmgNumber)
-        val resultECDData = findViewById<TextView>(R.id.exCriticalDmgNumber)
-        val data = intent.getSerializableExtra("PersonalData") as PersonalData
+//        val data = intent.getSerializableExtra("PersonalData") as PersonalData
+        val bundle = intent.extras
+        val resultDmgData = (bundle?.getParcelableArrayList<ResultDmgData>("resultDmgData") as ArrayList<ResultDmgData>)
+        Log.d("DmgData",resultDmgData[0].resultName)
 
-        val nonCriDame = data.NonCriticalDamage
-        val criDame = data.CriticalDamage
-        val exCriDame = data.CriticalDamageEx
-
-        val resultNonCriDame: String = java.lang.String.valueOf(nonCriDame)
-        resultNCDData.setText(resultNonCriDame);
-
-        val resultCriDame: String = java.lang.String.valueOf(criDame)
-        resultCDData.setText(resultCriDame);
-
-        val resultExCriDame: String = java.lang.String.valueOf(exCriDame)
-        resultECDData.setText(resultExCriDame);
 
         }
     }
