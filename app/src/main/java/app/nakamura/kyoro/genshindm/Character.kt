@@ -1,6 +1,6 @@
 package app.nakamura.kyoro.genshindm
 
-data class Character(
+class Character(
     var name: String = "",
     var skillList: MutableList<Skill>
 )
